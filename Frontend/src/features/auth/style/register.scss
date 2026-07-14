@@ -1,0 +1,130 @@
+$black: #0e0e10;
+$red: #e31c3d;
+$red-dark: #a30e28;
+$red-glow: #ff5b6e;
+$muted: #9a9aa2;
+$field-bg: #1a1a1d;
+$border: #2a2a2e;
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(60% 50% at 50% 0%, rgba($red, 0.16) 0%, transparent 60%), $black;
+    font-family: 'Segoe UI', Inter, sans-serif;
+    padding: 24px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 380px;
+    background: #141416;
+    border: 1px solid $border;
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    h1 {
+        color: #fff;
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        text-align: center;
+        margin: 0 0 30px;
+    }
+}
+
+// Styles for FormGroup — label + input pair
+.form-group {
+    margin-bottom: 18px;
+
+    label {
+        display: block;
+        color: $muted;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        background: $field-bg;
+        border: 1px solid $border;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+        &::placeholder {
+            color: #5c5c62;
+        }
+
+        &:hover {
+            border-color: #38383d;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $red;
+            background: #1e1e21;
+            box-shadow: 0 0 0 3px rgba($red, 0.18);
+        }
+    }
+}
+
+.button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(180deg, $red-glow 0%, $red 45%, $red-dark 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 10px 20px -10px rgba($red, 0.7);
+    transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+        filter: brightness(1.06);
+    }
+
+    &:active {
+        transform: translateY(1px);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 6px 14px -8px rgba($red, 0.6);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $red-dark;
+        outline-offset: 3px;
+    }
+}
+
+// "Already have account? Login here" line under the form
+.form-container > p {
+    text-align: center;
+    color: $muted;
+    font-size: 0.86rem;
+    margin: 22px 0 0;
+
+    a {
+        color: $red-glow;
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 4px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
