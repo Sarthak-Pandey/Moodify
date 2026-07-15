@@ -18,9 +18,12 @@ app.use('/posters', express.static(path.join(__dirname, 'public/posters')));
 
 const songRoutes = require('./routes/song.routes');
 const authRoutes = require('./routes/auth.routes');
+const spotifyRoutes = require("./routes/spotify.routes");
+
 
 app.use('/api/auth', authRoutes);
 app.use('/api/songs', songRoutes);
+app.use('/api/spotify', spotifyRoutes);
 
 app.use((req, res, next) => {
     res.status(404).json({ message: "API Route not found" });

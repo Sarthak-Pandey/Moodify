@@ -11,6 +11,7 @@ const COOKIE_OPTIONS = {
     maxAge: 3 * 24 * 60 * 60 * 1000
 };
 
+
 async function registerUser(req, res, next) {
     try {
         let { username, email, password } = req.body;
@@ -87,6 +88,7 @@ async function registerUser(req, res, next) {
 }
 
 
+
 async function loginUser(req, res, next) {
     try {
         const { email, username, password } = req.body;
@@ -145,6 +147,7 @@ async function loginUser(req, res, next) {
 }
 
 
+
 async function getMe(req, res, next) {
     try {
         const user = await userModel
@@ -166,6 +169,7 @@ async function getMe(req, res, next) {
         next(error);
     }
 }
+
 
 
 async function logoutUser(req, res, next) {
@@ -191,6 +195,7 @@ async function logoutUser(req, res, next) {
         next(error);
     }
 }
+
 
 
 async function verifyEmail(req, res, next) {
@@ -230,6 +235,8 @@ async function verifyEmail(req, res, next) {
         next(error);
     }
 }
+
+
 
 module.exports = {
     registerUser,
