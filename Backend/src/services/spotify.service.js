@@ -39,7 +39,36 @@ const getAccessToken = async () => {
     }
 };
 
-module.exports = {
-    getAccessToken
-};
 
+const searchSongs = async (query)=>{
+    
+    const token  = await getAccessToken();
+
+    try {
+        const response = await axios.get(
+            "https://api.spotify.com/v1/search",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                params: {
+                    q: query,
+                    type: "track",
+                    limit: 10,
+                },
+            }
+        );
+
+        return response.data.tracks.items;
+    } catch (error) {
+        const spotifyError = error.response?.data?.error?.message || error.response?.data || error.message;
+        console.error("Spotify Search Error:", spotifyError);
+        throw new Error(`Spotify search failed: ${spotifyError}`);
+    }
+}
+
+
+module.exports = {
+    getAccessToken,
+    searchSongs
+};
